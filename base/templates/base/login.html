@@ -1,0 +1,50 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center" style="height: 85vh;">
+  <div class="card" style="height: 70%; max-width: 500px; margin: 0 auto;">
+    <div class="card-header bg-primary text-white text-center">
+      <h5 class="card-title"> LOGIN </h5>
+    </div>
+    <div class="card-body">
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+          <div class="col-12">
+            <label for="{{ form.username.id_for_label }}">{{ form.username.label_tag }}</label>
+            <br>
+            {{ form.username }}
+            <small class="text-warning">{{ form.username.errors }}</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-12">
+            <label for="{{ form.password1.id_for_label }}">{{ form.password.label_tag }}</label>
+            <br>
+            {{ form.password }}
+            <small class="text-warning">{{ form.password.errors }}</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-12">
+            <button type="submit" value="Login" class="btn btn-primary rounded-lg">Login</button>
+          </div>
+        </div>
+
+        <div class="form-group text-center">
+          <div class="col-12">
+            <small class="text-muted">New User? <a href="{% url 'register' %}">Register</a></small>
+          </div>
+        </div>
+
+        {% if error_message %}
+          <div class="alert alert-warning my-4">{{ error_message }}</div>
+        {% endif %}
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

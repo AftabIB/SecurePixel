@@ -1,0 +1,607 @@
+/* Encode Image form styling */
+.custom-message,
+.custom-password,
+.custom-username,
+.custom-password1,
+.custom-password2,
+.custom-email {
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+.custom-message {
+  max-height: 170px;
+}
+
+
+.custom-dest,
+.custom-receiver {
+  border-radius: 5px;
+  border: 1px solid grey;
+}
+
+.custom-button {
+  position: relative;
+}
+
+.send-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+/* FOOTER STYLING */
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #343a40;
+  /* Choose the background color you prefer */
+  color: white;
+  /* Text color for the footer */
+  text-align: center;
+}
+
+/* ----------------MAIN.CSS by AFTAB BEGINS---------------- */
+.logo {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  padding: 3%;
+}
+
+.profile {
+  display: flex;
+  justify-content: end;
+  position: relative;
+  width: 100%;
+}
+
+.header {
+  background: transparent;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+}
+
+.logoAndName {
+  display: flex;
+  align-items: center;
+  width: 20%;
+}
+
+.title h3,
+span {
+  color: #2684ff;
+  font-size: smaller;
+  width: 100%;
+  margin: 0;
+}
+
+.title {
+  display: flex;
+  box-sizing: border-box;
+  justify-items: center;
+  flex-direction: column;
+  font-size: 20px;
+}
+
+.links #about {
+  border: none;
+  font-size: 1rem;
+  margin-right: 10px;
+}
+
+.links #home {
+  border: none;
+  font-size: 1rem;
+}
+
+.links nav a {
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: 2px solid #007bff;
+  border-radius: 8px;
+  color: #007bff;
+  transition: all 0.3s ease;
+}
+
+.links nav a#login {
+  background-color: #007bff;
+  color: white;
+  margin-right: 10px;
+}
+
+.links nav a#sign {
+  background-color: #007bff;
+  color: white;
+  margin-right: 10px;
+}
+
+.links nav a#login:hover {
+  background-color: #f1f1f1;
+  color: #007bff;
+}
+
+.links nav a#sign:hover {
+  background-color: #f1f1f1;
+  color: #007bff;
+}
+
+/* Profile photo - DJ */
+/* Add styling for the profile image container */
+.profile-box {
+  padding: 3px;
+  display: inline-block;
+  border: 1px solid #007bff;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.profile-image {
+  /* filter: brightness(100); */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+#profile {
+  border: none;
+  padding: 0;
+}
+
+/****************************** navbar end *******************************/
+
+/*************************** Dashboard start *************************/
+
+.card-container {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-card {
+  margin: 5% auto;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 4%;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  width: 60%;
+  height: 100%;
+  backdrop-filter: blur(6px);
+  background-color: #a9a9a925;
+}
+
+.main-card h1 {
+  margin-left: 2%;
+  font-size: 3rem;
+  color: #001833;
+}
+
+.sub-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card-item {
+  flex-basis: 30%;
+  padding: 20px;
+  margin: 10px;
+  background-color: #d9d1fd;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 7px;
+  transition: all ease 0.3s;
+  text-align: center;
+}
+
+.card-item:hover {
+  transform: scale(1.05);
+}
+
+.card-item img {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+}
+
+/******************* get-started *******************/
+.get-started {
+  text-align: right;
+}
+
+.link-arrow {
+  text-decoration: none;
+  font-size: 1.1rem;
+  background-color: #007bff;
+  border-radius: 8px;
+  color: white;
+  float: right;
+  transition: all ease 0.3s;
+}
+
+.link-arrow:hover {
+  background-color: #007bff;
+  color: #f1f1f1;
+}
+
+.link-arrow {
+  background-color: #007bff;
+  border-radius: 100px;
+  color: #fff;
+  display: flex;
+  font-family: sans-serif;
+  font-size: 1.1rem;
+  font-weight: 300;
+  line-height: 1em;
+  width: 30%;
+  align-items: center;
+  justify-items: center;
+  margin-top: 2%;
+  padding: 16px 32px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  height: auto;
+}
+
+.link-arrow::before,
+.link-arrow::after {
+  content: "->";
+  display: block;
+  font-family: Inter;
+  font-size: inherit;
+  position: absolute;
+  top: 50%;
+  right: 32px;
+  transform: translate(0%, -50%);
+  transition: all 0.5s cubic-bezier(0.25, 0.25, 0.08, 1.08);
+}
+
+.link-arrow.font-reg::before,
+.link-arrow.font-reg::after {
+  font-weight: 300;
+}
+
+.link-arrow::before {
+  opacity: 0;
+  transform: translate(-100%, -50%);
+}
+
+.link-arrow:hover::before {
+  opacity: 1;
+  transform: translate(0, -50%);
+}
+
+.link-arrow:hover::after {
+  opacity: 0;
+  transform: translate(100%, -50%);
+}
+
+/***************************  Dashboard end   *************************/
+
+/*************************** SIGNIN start ***************************/
+
+.container p {
+  font-size: 14px;
+  font-weight: 100;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+  margin: 20px 0 30px;
+}
+
+span {
+  font-size: 12px;
+}
+
+#forgot_pass {
+  color: #333;
+  font-size: 14px;
+  text-decoration: none;
+  margin: 15px 0;
+}
+
+.signin_button {
+  margin: 2%;
+  border-radius: 20px;
+  border: 1px solid #2684ff;
+  background-color: #2684ff;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: background-color 0.4s, color 0.4s;
+}
+
+.signin_button:active {
+  transform: scale(0.9);
+}
+
+.signin_button:focus {
+  outline: none;
+}
+
+.signin_button:hover {
+  background-color: #fff;
+  color: #2684ff;
+  text-decoration: none;
+}
+
+form {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 50px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+input {
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-color: #eee;
+  padding: 12px 15px;
+  width: 100%;
+}
+
+/* Container styles */
+.container {
+  margin: 2% 15%;
+  display: flex;
+  padding: 2%;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  position: relative;
+  width: 50%;
+  height: 570px;
+  overflow: hidden;
+}
+
+/* Sign-in page styles */
+.form-container.sign-in-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  left: 0;
+  width: 50%;
+}
+
+/* Overlay styles */
+.overlay-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 100;
+}
+
+.overlay {
+  background: linear-gradient(120deg, rgb(8, 3, 95) 0%, rgba(78, 78, 189, 1) 45%, rgba(0, 212, 255, 1) 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #FFFFFF;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.overlay-panel {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.right_img {
+  width: 50%;
+  filter: brightness(0);
+}
+
+.social-container {
+  margin: 20px 0;
+}
+
+.social-container a {
+  color: black;
+  text-decoration: none;
+  border: 1px solid #dddddd;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px;
+  height: 40px;
+  width: 40px;
+}
+
+/*************************** SIGNIN end ***************************/
+
+/************************** SIGNUP start ************************ */
+.container1 p {
+  font-size: 14px;
+  font-weight: 100;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+  margin: 20px 0 30px;
+}
+
+#forgot_pass {
+  color: #333;
+  font-size: 14px;
+  text-decoration: none;
+  margin: 15px 0;
+}
+
+.signup_button1 {
+  margin: 10% auto;
+  border-radius: 20px;
+  border: 1px solid #2684ff;
+  background-color: #2684ff;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: background-color 0.4s, color 0.4s;
+}
+
+.signup_button1:active {
+  transform: scale(0.90);
+}
+
+.signup_button1:focus {
+  outline: none;
+}
+
+.signup_button1:hover {
+  background-color: #fff;
+  color: #2684ff;
+  text-decoration: none;
+}
+
+form {
+  background-color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 60px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  gap: 0;
+}
+
+.input1 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+input {
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-color: #eee;
+  padding: 12px 15px;
+  width: 100%;
+}
+
+.form-container1.sign-up-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  right: 0;
+  width: 50%;
+}
+
+.container1 {
+  margin: 2% 15%;
+  display: flex;
+  padding: 2%;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+    0 10px 10px rgba(0, 0, 0, 0.22);
+  position: relative;
+  height: 570px;
+  overflow: hidden;
+}
+
+.form-container1 {
+  height: 100%;
+  width: 20%;
+  background-color: #FFFFFF;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.form-container1 h3 {
+  margin-top: 20px;
+}
+
+.overlay-container1 {
+  position: absolute;
+  top: 0;
+  right: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 100;
+}
+
+.overlay1 {
+  background: linear-gradient(120deg, rgb(8, 3, 95) 0%, rgba(78, 78, 189, 1) 45%, rgba(0, 212, 255, 1) 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #FFFFFF;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.overlay-panel1 {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.social-container {
+  margin: 5px 0;
+}
+
+.social-container a {
+  color: black;
+  text-decoration: none;
+  border: 1px solid #DDDDDD;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px;
+  height: 40px;
+  width: 40px;
+}
+
+.social-container:hover {
+  text-decoration: none;
+}
+
+.text-muted {
+  padding-bottom: 5px;
+}
+
+/*********************** SIGNUP end ***********************/

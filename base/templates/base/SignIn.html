@@ -1,0 +1,67 @@
+{% extends 'main.html' %} 
+
+{% block content %}
+
+<div class="bgvideo">
+  {% comment %} <video autoplay muted loop>
+    <source
+      src="https://res.cloudinary.com/dzy2zn0mz/video/upload/v1698215482/SecurePixel/bgvideo.mp4"
+    />
+  </video> {% endcomment %}
+</div>
+
+<div class="container" id="container">
+  <div class="form-container sign-in-container">
+
+    <!-- Form begins here -->
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <h1>Sign in</h1>
+      <div class="social-container">
+        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <span>or use your account</span></br>
+
+      <!-- Input from backend -->
+      <div class="input">
+          <!-- {{ form.username }}
+          <small class="text-warning">{{ form.username.errors }}</small>
+
+          {{ form.password }}
+          <small class="text-warning">{{ form.password.errors }}</small> -->
+            <input type="text" name="username" placeholder="Username">
+            <small class="text-warning">{{ form.username.errors }}</small>
+            <input type="password" name="password" placeholder="Password">
+            <small class="text-warning">{{ form.password.errors }}</small>
+      </div>
+      <!-- Input ends here -->
+      <a href="#" id="forgot_pass">Forgot your password ?</a>
+      <a href="index.html" class="signin_link">
+        <button class="signin_button" type="submit" value="Login">Signin</button>
+      </a>
+      {% comment %} <button class="signin_button"><a href="index.html" class="signin_link">Sign In</a></button> {% endcomment %}
+
+      {% if error_message %}
+          <div class="alert alert-warning my-4">{{ error_message }}</div>
+      {% endif %}
+    </form>
+  </div>
+
+
+  <div class="overlay-container">
+    <div class="overlay">
+      <div class="overlay-panel overlay-right">
+        <img
+          src="https://res.cloudinary.com/dzy2zn0mz/image/upload/v1698769946/SecurePixel/Images/Logo.png"
+          class="right_img"
+          alt="Logo"
+        />
+        <h1>Hello, User!</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

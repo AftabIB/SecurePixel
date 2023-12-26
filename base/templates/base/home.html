@@ -1,0 +1,45 @@
+{% extends 'main.html' %} 
+
+{% block content %}
+<!-- Card Layout begins -->
+<div class="card-container">
+  <div class="main-card">
+    <h1>WELCOME {{user.username}}</h1>
+    <div class="sub-cards">
+      <div class="card-item">
+        <img
+          src="https://res.cloudinary.com/dzy2zn0mz/image/upload/v1698769947/SecurePixel/Images/card1.jpg"
+          alt="Secure Communication 1"
+        />
+        <br />
+        Ensure secure internal communication to protect sensitive company
+        information.
+      </div>
+      <div class="card-item">
+        <img
+          src="https://res.cloudinary.com/dzy2zn0mz/image/upload/v1698769945/SecurePixel/Images/card2.avif"
+          alt="Secure Communication 2"
+        />
+        <br />
+        Secure communication for classified government and military data.
+      </div>
+      <div class="card-item">
+        <img
+          src="https://res.cloudinary.com/dzy2zn0mz/image/upload/v1698769945/SecurePixel/Images/card3.jpg"
+          alt="Secure Communication 3"
+        />
+        <br />
+        Secure communication and data exchange in the supply chain to prevent
+        breaches or cyberattacks.
+      </div>
+    </div>
+
+    <!-- Authorization -->
+    {% if user.is_authenticated %}
+      <a href="{% url 'landing' %}" class="link-arrow font-reg">Get started</a>
+    {% else %}
+      <a href="{% url 'sign-in' %}" class="link-arrow font-reg">Get started</a>
+    {% endif %}
+  </div>
+</div>
+{% endblock content %}

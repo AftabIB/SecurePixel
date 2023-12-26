@@ -1,0 +1,9 @@
+Testing findings: (22/10/23 Time: 12:19 am)
+
+1. org img size: 220kb jpeg
+2. message size: 92 words
+3. stego image: 1.15mb png
+4. duration to decode: 6min approx
+
+Adv: No visible changes in the image. Password is stored in the image itself
+Dis: Larger the message, longer the time needed to decode

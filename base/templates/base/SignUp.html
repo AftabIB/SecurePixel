@@ -1,0 +1,92 @@
+{% extends 'main.html' %} {% block content %}
+<div class="bgvideo">
+  <!-- <video autoplay muted loop>
+    <source
+      src="https://res.cloudinary.com/dzy2zn0mz/video/upload/v1698215482/SecurePixel/bgvideo.mp4"
+    />
+  </video> -->
+</div>
+
+<div class="container1" id="container">
+  <div class="form-container1 sign-up-container">
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <h3>Create Account</h3>
+      <div class="social-container">
+        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <span>or use your email for registration</span></br>
+
+      <!-- Backend form - DJ -->
+      <div class="input1">
+        <div class="form-group">
+          <div class="col-12">
+            {{ form.username }}
+            <small class="text-warning">{{ form.username.errors }}</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-12">
+            {{ form.email }}
+            <small class="text-warning">{{ form.email.errors }}</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-12">
+            {{ form.password1 }}
+            <small class="text-warning">{{ form.password1.errors }}</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-12">
+            {{ form.password2 }}
+            <small class="text-warning">{{ form.password2.errors }}</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-12">
+            {{ form.profile_picture }}
+            <small class="text-warning">{{ form.profile_picture.errors }}</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary rounded-lg">Submit</button>
+          </div>
+        </div>
+
+        <div class="form-group text-center">
+          <div class="col-12">
+            <small class="text-muted">Existing User? <a href="{% url 'sign-in' %}">Login</a></small>
+          </div>
+        </div>
+
+        <!-- Display non-field errors if there are any -->
+        {% if form.non_field_errors %}
+          {% for error in form.non_field_errors %}
+            <div class="alert alert-warning my-4">{{ error }}</div>
+          {% endfor %}
+        {% endif %}
+      </div>
+
+      <!-- <a href="index.html" class="signup_link">
+        
+      </a> -->
+    </form>
+  </div>
+   <div class="overlay-container1">
+    <div class="overlay1">
+      <div class="overlay-panel1 overlay-left1">
+        <h1>Welcome User !</h1>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

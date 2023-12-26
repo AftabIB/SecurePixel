@@ -1,0 +1,117 @@
+{% extends 'main.html' %} {% load static %} {% block content %}
+
+<div class="row align-items-center justify-content-around w-100">
+  <div class="col-md-6 d-flex justify-content-center">
+    <div class="card shadow rounded w-75">
+      {% if success_message %}
+      <div class="alert alert-success mb-3" role="alert">
+        {{ success_message }}
+      </div>
+      {% endif %} {% if error_message %}
+      <div class="alert alert-danger mb-3" role="alert">
+        {{ error_message }}
+      </div>
+      {% endif %}
+      <div class="card-header bg-primary text-white">
+        <div class="row align-items-center">
+          <div class="col-md-3">
+            <a href="{% url 'landing' %}">
+              <button class="btn btn-primary">
+                <i class="fa fa-chevron-left" aria-hidden="true"></i>
+              </button>
+            </a>
+          </div>
+          <div class="col-md-6 text-center">
+            <h4>SEND</h4>
+          </div>
+        </div>
+      </div>
+      <div class="card-body p-2">
+        <form
+          method="post"
+          enctype="multipart/form-data"
+          style="background-color: #a9a9a925"
+        >
+          {% csrf_token %}
+
+          <div class="form-group row"></div>
+
+          <div class="form-group row">
+            <div class="col-sm-3 text-md-right">
+              <label for="{{ form.image.id_for_label }}"
+                >{{ form.image.label_tag }}</label
+              >
+            </div>
+            <div class="col-sm-9">{{ form.image }} {{ form.image.errors }}</div>
+
+            <div class="col-sm-3 text-md-right mt-2">
+              <label for="{{ form.message.id_for_label }}"
+                >{{ form.message.label_tag }}</label
+              >
+            </div>
+            <div class="col-sm-9 mt-2">
+              {{ form.message }} {{ form.message.errors }}
+            </div>
+
+            <div class="col-sm-3 text-md-right mt-2">
+              <label for="{{ form.password.id_for_label }}"
+                >{{ form.password.label_tag }}</label
+              >
+            </div>
+            <div class="col-sm-9 mt-2">
+              {{ form.password }} {{ form.password.errors }}
+            </div>
+
+            <div class="col-sm-3 text-md-right mt-3">
+              <label for="{{ form.dest.id_for_label }}"
+                >{{ form.dest.label_tag }}</label
+              >
+            </div>
+            <div class="col-sm-9 mt-3">{{ form.dest }}</div>
+
+            <div class="col-sm-3 text-md-right mt-3">
+              <label for="{{ form.receiver.id_for_label }}"
+                >{{ form.receiver.label_tag }}</label
+              >
+            </div>
+            <div class="col-sm-3 mt-3">{{ form.receiver }}</div>
+          </div>
+
+          <div class="form-group text-center">
+            <button type="submit" class="btn btn-primary custom-button">
+              SEND
+              <!-- <img src="{% static 'images/send_icon.png' %}" alt="Send Icon" class="send-icon"> -->
+              <i class="fa fa-paper-plane" aria-hidden="true"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    {% comment %} <footer class="footer bg-dark text-white text-center py-3 mt-5">
+      All Right Reserved &copy; SecurePixel - 2023
+    </footer> {% endcomment %}
+  </div>
+</div>
+{% endblock content %} {% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector("form");
+    form.addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevents the default form submission
+
+      // Here, perform AJAX submission if needed
+
+      // Simulating a successful submission for demonstration purposes
+      // Replace this with your actual success handling logic
+      Swal.fire({
+        icon: "success",
+        title: "Success!",
+        text: "Your message has been sent.",
+      }).then(() => {
+        form.submit(); // Submit the form after showing the SweetAlert
+      });
+    });
+  });
+</script>
+{% endblock scripts %}

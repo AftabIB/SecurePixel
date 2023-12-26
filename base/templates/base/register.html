@@ -1,0 +1,84 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+<div class="container d-flex justify-content-center align-items-center" style="height: 85vh;">
+  <div class="card">
+    <div class="card-header bg-primary text-white text-center">
+      <h5 class="card-title"> REGISTER</h5>
+    </div>
+    <div class="card-body">
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <!-- Display each form field individually with Bootstrap styling -->
+        <div class="form-group">
+          <div class="col-12"> <!-- Create a full-width column for each form field -->
+            <label for="{{ form.username.id_for_label }}">{{ form.username.label_tag }}</label>
+            <br>
+            {{ form.username }}
+            <small class="text-warning">{{ form.username.errors }}</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-12"> <!-- Create a full-width column for each form field -->
+            <label for="{{ form.email.id_for_label }}">{{ form.email.label_tag }}</label>
+            <br>
+            {{ form.email }}
+            <small class="text-warning">{{ form.email.errors }}</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-12">
+            <label for="{{ form.password1.id_for_label }}">{{ form.password1.label_tag }}</label>
+            <br>
+            {{ form.password1 }}
+            <small class="text-warning">{{ form.password1.errors }}</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-12">
+            <label for="{{ form.password2.id_for_label }}">{{ form.password2.label_tag }}</label>
+            <br>
+            {{ form.password2 }}
+            <small class="text-warning">{{ form.password2.errors }}</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-12">
+            <label for="{{ form.profile_picture.id_for_label }}">{{ form.profile_picture.label_tag }}</label>
+            <br>
+            {{ form.profile_picture }}
+            <small class="text-warning">{{ form.profile_picture.errors }}</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary rounded-lg">Submit</button>
+          </div>
+        </div>
+
+        <div class="form-group text-center">
+          <div class="col-12">
+            <small class="text-muted">Existing User? <a href="">Login</a></small>
+          </div>
+        </div>
+
+        <!-- Display non-field errors if there are any -->
+        {% if form.non_field_errors %}
+          {% for error in form.non_field_errors %}
+            <div class="alert alert-warning my-4">{{ error }}</div>
+          {% endfor %}
+        {% endif %}
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+
+

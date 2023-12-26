@@ -1,0 +1,111 @@
+{% extends 'main.html' %} {% block content %}
+<head>
+  <style>
+    .decoded-message-box {
+      max-height: 360px;
+      overflow: auto;
+    }
+    .card-body {
+      height: 490px;
+      overflow: auto;
+    }
+
+     .fixed-elements {
+      position: fixed;
+      top: 10px;
+      right: 10px; 
+    }
+  </style>
+</head>
+<!-- Outer container -->
+        <div class="mt-3 mx-4">
+          <div class="row">
+            <div class="col-md-7">
+              <!-- Increased the width of the left card -->
+              {% if steg_records %}
+              <div class="card shadow custom-card">
+                <div class="d-flex justify-content-between align-items-center px-4 mt-4">
+          <!-- Using flexbox classes -->
+          <a href="{% url 'landing' %}">
+            <button type="button" class="btn btn-outline-primary">Go Back</button>
+          </a>
+          <h5 class="card-title text-right">
+            Welcome {{ user.username }},
+            <span class="badge badge-pill badge-primary" style="max-width: 12rem;">
+              {{ steg_records.count }} New Messages
+            </span>
+          </h5>
+        </div>
+        <div class="card-body">
+          <table class="table table-bordered">
+            <!-- Increased the width of the table -->
+            <thead class="thead-dark">
+              <tr>
+                <th>Sender</th>
+                <th>Image Received</th>
+                <th>Time</th>
+                <th>Image Preview</th>
+                <th>Decode</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for record in steg_records %}
+              <tr>
+                <td>{{ record.sender.username }}</td>
+                <td>
+                  <p>{{record.dest}}</p>
+                </td>
+                <td>
+                  <p>{{record.created | timesince}} ago</p>
+                </td>
+                <td>
+                  <a href="{{ record.encoded_img.url }}" target="_blank"
+                    >View Image</a
+                  >
+                </td>
+                <td>
+                  <form method="post" action="{% url 'decode-img' %}" class="p-0">
+                  {% csrf_token %}
+                  <input type="hidden" name="image_url" value="{{ record.encoded_img.url }}" class="p-0" />
+                  <input type="password" name="password" placeholder="Password Required" class="form-control" />
+                  <input type="submit" value="Decode" class="btn btn-primary mt-2" />
+                </form>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      {% else %}
+      <div class="alert alert-info" role="alert">No New Messages!</div>
+      {% endif %}
+    </div>
+    <div class="col-md-5">
+      {% if message %}
+      <div class="card shadow" style="height: 575px;">
+        <div class="card-body">
+          <h2 class="card-title lead">Decoded Message:</h2>
+          <div class="decoded-message-box border p-2">
+            <p>{{ message }}</p>
+          </div>
+          <br />
+          <div class="alert alert-success mt-5" role="alert">SUCCESS</div>
+          {% endif %} 
+          
+          {% if error_message %}
+          <div class="alert alert-danger mt-5" role="alert">
+            {{ error_message }}
+          </div>
+          
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="footer bg-dark text-white text-center py-3 mt-5">
+  All Right Reserved &copy; SecurePixel - 2023
+</footer>
+
+{% endblock content %}

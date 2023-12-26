@@ -1,0 +1,84 @@
+{% extends 'main.html' %} {% block content %}
+
+<div style="margin:1%">
+  <hr>
+  <div class="text-center">
+    <a href="{% url 'encode-img' %}" class="btn btn-primary rounded-lg">Encode Image</a>
+    <a href="{% url 'decode-img' %}" class="btn btn-primary rounded-lg">Decode Image</a>
+  </div>
+  <hr>
+
+  <!-- -----------SENT LOGS TABLE BEGINS---------------- -->
+  <p>Sent logs</p>
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th>Sent Image</th>
+        <th>Last modified</th>
+        <th>Receiver</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for record in sent_records %}
+        {% if request.user == record.sender %}
+          <tr>
+            <td>{{ record.image_name }}</td>
+            <td>
+              <p>{{ record.updated | timesince}}</p>
+            </td>
+            <td>
+              <p>{{ record.receiver }}</p>
+            </td>
+          </tr>
+        {% endif %}
+      {% endfor %}
+      {% if not records_found_s %}
+        <tr>
+          <td colspan="3">
+            <p>No records found</p>
+          </td>
+        </tr>
+      {% endif %}
+    </tbody>
+  </table>
+  <!-- -----------SENT LOGS TABLE END---------------- -->
+
+  <!-- -----------REC LOGS TABLE END---------------- -->
+  <p>Receiver logs</p>
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th>Received Image</th>
+        <th>Last modified</th>
+        <th>Sender</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for record in receiver_records %}
+        {% if request.user == record.receiver %}
+          <tr>
+            <td>{{ record.image_name }}</td>
+            <td>
+              <p>{{ record.updated | timesince}}</p>
+            </td>
+            <td>
+              <p>{{ record.sender }}</p>
+            </td>
+          </tr>
+        {% endif %}
+      {% endfor %}
+      {% if not records_found_r %}
+        <tr>
+          <td colspan="3">
+            <p>No records found</p>
+          </td>
+        </tr>
+      {% endif %}
+    </tbody>
+  </table>
+  
+
+  <!-- -----------REC LOGS TABLE END---------------- -->
+</div>
+
+{% endblock content %}

@@ -1,0 +1,42 @@
+<!-- <a href="/">
+    <h1>SecurePixel</h1>
+</a>
+{% load static %} -->
+
+<div class="header">
+    <div class="logoAndName">
+      <img
+        class="logo"
+        src="https://res.cloudinary.com/dzy2zn0mz/image/upload/v1698769946/SecurePixel/Images/logo.png"
+        alt="logo"
+      />
+      <div class="title">
+        <a href="/"><h3>SecurePixel</h3></a>
+        <span>Secure your data with us</span>
+      </div>
+    </div>
+  
+    <div class="links">
+      <nav>
+        <!-- <a href="index.html" target id="home">Home</a> -->
+            {% if user.is_authenticated %}
+                <a href="https://www.google.com" target id="about">About us</a>
+                <a href="{% url 'logout' %}" target id="sign">Logout</a>
+                {% if user.userregistration.profile_picture %}
+                <a href="{% url 'landing' %}" target id="profile">
+                    <div class="profile-box">
+                      <img src="{{user.userregistration.profile_picture.url }}" alt="Profile Image" class="profile-image" />
+                    </div>
+                    <small>{{user.username}}</small>
+                {% else %}
+                    <img src="https://res.cloudinary.com/dzy2zn0mz/image/upload/v1698769945/SecurePixel/Images/profile.png" alt="Profile Image" class="profile-image" />
+                {% endif %}
+                </a>
+            {% else %}
+                <a href="https://www.google.com" target id="about">About us</a>
+                <a href="{% url 'sign-up' %}" target id="sign">Sign up</a>
+                <a href="{% url 'sign-in' %}" target id="sign">Sign In</a>
+            {% endif %}
+      </nav>
+    </div>
+  </div>
